@@ -5,14 +5,18 @@ using UnityEngine;
 public class CharacterMove : MonoBehaviour {
 
 	// Player Movement Variables
-	public int moveSpeed = 10;
+	public int moveSpeed;
 	public float JumpHeight;
+	private bool doubleJump;
 	
-	//Player Grounded Variables
+	//Player grounded Variables
 	public Transform groundCheck;
 	public float groundCheckRadius;
 	public LayerMask whatIsGround;
 	private bool grounded;
+
+	//Non-Slide Player
+	private float moveVelocity;
 	
 	// Use this for initialization
 	void Start () {
@@ -32,13 +36,29 @@ public class CharacterMove : MonoBehaviour {
 			Jump();
 		}
 
+		//Double jump code
+		if(grounded)
+			doubleJump = false;
+
+		if(Input.GetKeyDown (KeyCode.Space)&& !doubleJump && !grounded){
+			Jump();
+			doubleJump = true;
+		}
+		//Non-Slide PLayer
+		moveVelocity = 0f;
+
 		// This codee makes the character move from side to sdie using the A&D keys
 		if(Input.GetKey (KeyCode.D)){
-			GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+			//GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+			moveVelocity = moveSpeed;
 		}
 		if(Input.GetKey (KeyCode.A)){
-			GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+			//GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+			moveVelocity = -moveSpeed;
 		}
+
+		GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
+
 	}
 	
 	public void Jump(){
