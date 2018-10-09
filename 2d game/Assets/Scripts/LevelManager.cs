@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour {
 
 	public GameObject CurrentCheckPoint;
-	private Rigidbody2D PC;
+	public Rigidbody2D PC;
 
 	//Particles
 	public GameObject DeathParticle;
@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		PC = FindObjectOfType<Rigidbody2D> ();
+		// PC = FindObjectOfType<Rigidbody2D> ();
 	}
 
 	public void RespawnPlayer(){
