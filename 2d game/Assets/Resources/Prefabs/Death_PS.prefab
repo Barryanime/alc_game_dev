@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198136703808028888}
   - component: {fileID: 199837501518513076}
   m_Layer: 0
-  m_Name: Death PS
+  m_Name: Death_PS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

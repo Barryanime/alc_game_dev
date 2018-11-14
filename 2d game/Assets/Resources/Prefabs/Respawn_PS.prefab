@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198074871667841526}
   - component: {fileID: 199088496612357006}
   m_Layer: 0
-  m_Name: Respawn PS
+  m_Name: Respawn_PS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
